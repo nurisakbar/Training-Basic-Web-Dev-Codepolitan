@@ -1,3 +1,10 @@
+<?php session_start(); ?>
+<?php
+if(empty($_SESSION['nama_lengkap'])){
+    header('location:login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,9 +60,8 @@
                         <li><a href="list_kategori.php">Data Kategori</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="../navbar/">Default</a></li>
-                        <li><a href="../navbar-static-top/">Static top</a></li>
-                        <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+                        <li><a href="../navbar-static-top/"><?php echo $_SESSION['nama_lengkap'];?></a></li>
+                        <li class="active"><a href="logout.php">Logout <span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
